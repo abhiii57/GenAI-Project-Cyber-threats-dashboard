@@ -7,10 +7,6 @@ from incident_store import log_incident
 
 app = Flask(__name__)
 
-# ------------------------------------------------
-# Load ML Components
-# ------------------------------------------------
-
 print("Loading ML components...")
 
 model = joblib.load("C:\\GenAI project\\models\\intrusion_model.pkl")
@@ -19,18 +15,11 @@ features = joblib.load("C:\\GenAI project\\models\\features.pkl")
 
 print("Model expects", len(features), "features")
 
-# ------------------------------------------------
-# Statistics
-# ------------------------------------------------
 
 total_packets = 0
 attacks = 0
 normal = 0
 last_report = "No incidents yet"
-
-# ------------------------------------------------
-# Attack Type Classifier
-# ------------------------------------------------
 
 def classify_threat(packet):
 
@@ -46,9 +35,6 @@ def classify_threat(packet):
     return "Unknown Suspicious Pattern"
 
 
-# ------------------------------------------------
-# Prediction Endpoint
-# ------------------------------------------------
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -59,10 +45,7 @@ def predict():
 
         data = request.json
 
-        # ------------------------------------------------
-        # Build full feature vector
-        # ------------------------------------------------
-
+       
         input_data = {}
 
         for f in features:
@@ -153,9 +136,7 @@ def predict():
         }), 500
 
 
-# ------------------------------------------------
-# Stats Endpoint
-# ------------------------------------------------
+
 
 @app.route("/stats")
 def stats():
@@ -167,10 +148,6 @@ def stats():
         "last_report": last_report
     })
 
-
-# ------------------------------------------------
-# Server Start
-# ------------------------------------------------
 
 if __name__ == "__main__":
     print("Starting AI Intrusion Detection API...")

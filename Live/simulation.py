@@ -12,9 +12,6 @@ features = joblib.load("C:\\GenAI project\\models\\features.pkl")
 print("Simulator using", len(features), "features")
 
 
-# ------------------------------------------------
-# Feature Generator
-# ------------------------------------------------
 
 def generate_base_packet():
     packet = {}
@@ -25,9 +22,7 @@ def generate_base_packet():
     return packet
 
 
-# ------------------------------------------------
-# Traffic Profiles
-# ------------------------------------------------
+
 
 def simulate_normal():
     packet = generate_base_packet()
@@ -68,9 +63,6 @@ def simulate_bot():
     return packet
 
 
-# ------------------------------------------------
-# Scenario Selector (Improved Distribution)
-# ------------------------------------------------
 
 def generate_traffic():
 
@@ -91,9 +83,6 @@ def generate_traffic():
     return scenario, packet
 
 
-# ------------------------------------------------
-# Simulation Loop (STABLE)
-# ------------------------------------------------
 
 print("Starting traffic simulation...")
 

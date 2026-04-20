@@ -52,9 +52,6 @@ Make the explanation technical but clear.
         return f"AI report generation failed: {str(e)}"
 
 
-# ------------------------------------------------
-# PDF REPORT GENERATOR
-# ------------------------------------------------
 
 def create_pdf(report_text, filename="incident_report.pdf"):
  

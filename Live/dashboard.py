@@ -469,3 +469,5 @@ with dl_col:
                 Report will generate<br/>automatically upon<br/>attack detection.
             </div>
             """, unsafe_allow_html=True)
+
+           
